@@ -1,0 +1,24 @@
+# ------------------------------
+# Client side credentials ignore
+# ------------------------------
+
+# dependency
+client/node_modules
+
+# production
+client/build
+
+# misc
+client/.env.local
+client/npm-debug.log*
+client/public/google-app-password.png
+
+# ------------------------------
+# Server side credentials ignore
+# ------------------------------
+
+# dependency
+server/node_modules
+
+# misc
+server/.env
