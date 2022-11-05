@@ -1,0 +1,44 @@
+{
+  "name": "e-commerce--server",
+  "version": "1.0.0",
+  "description": "An electronic commerce or internet commerce which refers to the buying and selling of goods or services using the internet, and the transfer of money and data to execute these transactions throughout multi-vendor.",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "development": "NODE_ENV=development nodemon server.js",
+    "production": "NODE_ENV=production node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hasibulislam999/e-commerce.git"
+  },
+  "keywords": [
+    "e-commerce",
+    "multi-vendor",
+    "business"
+  ],
+  "author": "Hasibul Islam",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hasibulislam999/e-commerce/issues"
+  },
+  "homepage": "https://github.com/hasibulislam999/e-commerce#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.32.0",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.7.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.8.0",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "win-node-env": "^0.6.1"
+  }
+}
