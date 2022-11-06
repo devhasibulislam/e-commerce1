@@ -1,9 +1,14 @@
 {
   "cSpell.words": [
     "cloudinary",
+    "daisyui",
+    "ecommercetheme",
     "Hasib",
     "Hasibul",
-    "middlewares"
+    "middlewares",
+    "noopener",
+    "noreferrer",
+    "tailwindcss"
   ],
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
