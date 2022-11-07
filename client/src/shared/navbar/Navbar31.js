@@ -9,136 +9,8 @@ const Navbar31 = () => {
       <div className="flex-1 gap-x-4">
         {/* logo insertion here */}
         <Link to={"/"}>
-          <Image src={"logo.png"} height="50" width="150" />
+          <Image src={"logo.png"} height="50" width="150" alt="header logo" />
         </Link>
-
-        {/* category display here */}
-        {/* <label tabIndex={0} className="btn btn-ghost whitespace-nowrap shadow rounded">
-          <span className="indicator tooltip tooltip-left tooltip-primary capitalize flex items-center gap-x-2" data-tip="Select Category">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v2.25A2.25 2.25 0 006 10.5zm0 9.75h2.25A2.25 2.25 0 0010.5 18v-2.25a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25V18A2.25 2.25 0 006 20.25zm9.75-9.75H18a2.25 2.25 0 002.25-2.25V6A2.25 2.25 0 0018 3.75h-2.25A2.25 2.25 0 0013.5 6v2.25a2.25 2.25 0 002.25 2.25z"
-              />
-            </svg>
-            Categories
-          </span>
-        </label> */}
-
-        {/* category with drop-down */}
-        <div className="dropdown dropdown-end">
-          <label
-            tabIndex={0}
-            className="btn btn-ghost whitespace-nowrap shadow rounded"
-          >
-            <span
-              className="indicator tooltip tooltip-left tooltip-primary capitalize flex items-center gap-x-2"
-              data-tip="Select Category"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v2.25A2.25 2.25 0 006 10.5zm0 9.75h2.25A2.25 2.25 0 0010.5 18v-2.25a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25V18A2.25 2.25 0 006 20.25zm9.75-9.75H18a2.25 2.25 0 002.25-2.25V6A2.25 2.25 0 0018 3.75h-2.25A2.25 2.25 0 0013.5 6v2.25a2.25 2.25 0 002.25 2.25z"
-                />
-              </svg>
-              Categories
-            </span>
-          </label>
-          <div
-            tabIndex={0}
-            className="dropdown-content menu p-2 shadow bg-base-100 rounded lg:w-96 w-64 h-96 overflow-y-scroll"
-          >
-            {/* drop-down items here */}
-            <div className="grid lg:grid-cols-3 grid-cols-2 gap-4 w-full">
-              <div className="w-fit p-2 shadow">
-                <Image
-                  src={
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvxQ2_Ll8bvWL_qF8Ij4VhCaViIntlXdZj5pTHXE0&s"
-                  }
-                  height="100"
-                  width="100"
-                />
-                <p className="text-center">Category</p>
-              </div>
-              <div className="w-fit p-2 shadow">
-                <Image
-                  src={
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvxQ2_Ll8bvWL_qF8Ij4VhCaViIntlXdZj5pTHXE0&s"
-                  }
-                  height="100"
-                  width="100"
-                />
-                <p className="text-center">Category</p>
-              </div>
-              <div className="w-fit p-2 shadow">
-                <Image
-                  src={
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvxQ2_Ll8bvWL_qF8Ij4VhCaViIntlXdZj5pTHXE0&s"
-                  }
-                  height="100"
-                  width="100"
-                />
-                <p className="text-center">Category</p>
-              </div>
-              <div className="w-fit p-2 shadow">
-                <Image
-                  src={
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvxQ2_Ll8bvWL_qF8Ij4VhCaViIntlXdZj5pTHXE0&s"
-                  }
-                  height="100"
-                  width="100"
-                />
-                <p className="text-center">Category</p>
-              </div>
-              <div className="w-fit p-2 shadow">
-                <Image
-                  src={
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvxQ2_Ll8bvWL_qF8Ij4VhCaViIntlXdZj5pTHXE0&s"
-                  }
-                  height="100"
-                  width="100"
-                />
-                <p className="text-center">Category</p>
-              </div>
-              <div className="w-fit p-2 shadow">
-                <Image
-                  src={
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvxQ2_Ll8bvWL_qF8Ij4VhCaViIntlXdZj5pTHXE0&s"
-                  }
-                  height="100"
-                  width="100"
-                />
-                <p className="text-center">Category</p>
-              </div>
-              <div className="w-fit p-2 shadow">
-                <Image
-                  src={
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvxQ2_Ll8bvWL_qF8Ij4VhCaViIntlXdZj5pTHXE0&s"
-                  }
-                  height="100"
-                  width="100"
-                />
-                <p className="text-center">Category</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       <div className="flex-none gap-x-4">
         {/* search from all shops */}
@@ -199,16 +71,7 @@ const Navbar31 = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 rounded"
           >
             <li>
-              <a>Dashboard</a>
-            </li>
-            <li>
-              <a>Profile</a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
+              <span>Logout</span>
             </li>
           </ul>
         </div>
