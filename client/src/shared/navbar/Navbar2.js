@@ -108,3 +108,10 @@ const Navbar2 = () => {
 };
 
 export default Navbar2;
+
+/**
+ * Currency symbols
+ * https://www.toptal.com/designers/htmlarrows/currency/
+ * Flag symbols
+ * https://www.quackit.com/character_sets/emoji/emoji_v3.0/unicode_emoji_v3.0_characters_flags.cfm
+ */
