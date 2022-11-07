@@ -9,7 +9,7 @@ const Navbar31 = () => {
       <div className="flex-1 gap-x-4">
         {/* logo insertion here */}
         <Link to={"/"}>
-          <Image src={"logo.png"} height="50" width="150" alt="header logo" />
+          <Image src={"logo.png"} height="47px" width="150px" alt="header logo" />
         </Link>
       </div>
       <div className="flex-none gap-x-4">
@@ -63,12 +63,12 @@ const Navbar31 = () => {
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-              <img src="https://placeimg.com/80/80/people" />
+              <img src="https://placeimg.com/80/80/people" alt="random people" />
             </div>
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 rounded"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 w-52 rounded"
           >
             <li>
               <span>Logout</span>

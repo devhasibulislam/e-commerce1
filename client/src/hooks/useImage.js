@@ -1,7 +1,7 @@
 import React from "react";
 
-const Image = ({ src, ...props }) => {
-  try {
+const Image = ({ src, alt, height, width }) => {
+  /* try {
     return React.createElement(require.resolve("next/image").default, {
       src: typeof src === "string" ? src : src.src,
       ...props,
@@ -9,7 +9,15 @@ const Image = ({ src, ...props }) => {
   } catch {
     console.log("Not using Next.js");
     return React.createElement("img", { src, ...props });
-  }
+  } */
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      style={{ objectFit: "cover", height: height, width: width }}
+    />
+  );
 };
 
 export default Image;
