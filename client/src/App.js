@@ -1,8 +1,9 @@
+import "./App.css";
 import Navbar from "./shared/navbar/Navbar";
 
 function App() {
   return (
-    <section>
+    <section className="App">
       <Navbar />
     </section>
   );
