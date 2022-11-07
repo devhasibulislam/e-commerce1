@@ -1,7 +1,16 @@
 import React from "react";
+import Navbar31 from "./Navbar31";
+import Navbar32 from "./Navbar32";
 
 const Navbar3 = () => {
-  return <section></section>;
+  return (
+    <nav className="shadow py-2">
+      <div className="container mx-auto">
+        <Navbar31 />
+        <Navbar32 />
+      </div>
+    </nav>
+  );
 };
 
 export default Navbar3;
