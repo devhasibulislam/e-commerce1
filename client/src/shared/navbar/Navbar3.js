@@ -7,6 +7,7 @@ const Navbar3 = () => {
     <nav className="shadow py-2">
       <div className="container mx-auto">
         <Navbar31 />
+        <hr className="my-2" />
         <Navbar32 />
       </div>
     </nav>
