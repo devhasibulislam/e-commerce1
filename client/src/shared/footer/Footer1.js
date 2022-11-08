@@ -132,7 +132,7 @@ const Footer1 = () => {
   ];
 
   return (
-    <section className="footer p-10">
+    <section className="footer p-10 lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2 grid-cols-2">
       {footerMenu.map((menu, index) => (
         <div key={index}>
           <span className="footer-title">{menu.title}</span>
