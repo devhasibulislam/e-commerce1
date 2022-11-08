@@ -147,6 +147,96 @@ const Navbar32 = () => {
         "https://t3.ftcdn.net/jpg/03/59/09/04/360_F_359090423_7kA3WC9HnDEf1I9dx4ccGFhhO90vmzhk.jpg",
       anchor: "/category",
     },
+    {
+      title: "Category",
+      thumbnail:
+        "https://t3.ftcdn.net/jpg/03/59/09/04/360_F_359090423_7kA3WC9HnDEf1I9dx4ccGFhhO90vmzhk.jpg",
+      anchor: "/category",
+    },
+    {
+      title: "Category",
+      thumbnail:
+        "https://t3.ftcdn.net/jpg/03/59/09/04/360_F_359090423_7kA3WC9HnDEf1I9dx4ccGFhhO90vmzhk.jpg",
+      anchor: "/category",
+    },
+    {
+      title: "Category",
+      thumbnail:
+        "https://t3.ftcdn.net/jpg/03/59/09/04/360_F_359090423_7kA3WC9HnDEf1I9dx4ccGFhhO90vmzhk.jpg",
+      anchor: "/category",
+    },
+    {
+      title: "Category",
+      thumbnail:
+        "https://t3.ftcdn.net/jpg/03/59/09/04/360_F_359090423_7kA3WC9HnDEf1I9dx4ccGFhhO90vmzhk.jpg",
+      anchor: "/category",
+    },
+    {
+      title: "Category",
+      thumbnail:
+        "https://t3.ftcdn.net/jpg/03/59/09/04/360_F_359090423_7kA3WC9HnDEf1I9dx4ccGFhhO90vmzhk.jpg",
+      anchor: "/category",
+    },
+    {
+      title: "Category",
+      thumbnail:
+        "https://t3.ftcdn.net/jpg/03/59/09/04/360_F_359090423_7kA3WC9HnDEf1I9dx4ccGFhhO90vmzhk.jpg",
+      anchor: "/category",
+    },
+    {
+      title: "Category",
+      thumbnail:
+        "https://t3.ftcdn.net/jpg/03/59/09/04/360_F_359090423_7kA3WC9HnDEf1I9dx4ccGFhhO90vmzhk.jpg",
+      anchor: "/category",
+    },
+    {
+      title: "Category",
+      thumbnail:
+        "https://t3.ftcdn.net/jpg/03/59/09/04/360_F_359090423_7kA3WC9HnDEf1I9dx4ccGFhhO90vmzhk.jpg",
+      anchor: "/category",
+    },
+    {
+      title: "Category",
+      thumbnail:
+        "https://t3.ftcdn.net/jpg/03/59/09/04/360_F_359090423_7kA3WC9HnDEf1I9dx4ccGFhhO90vmzhk.jpg",
+      anchor: "/category",
+    },
+    {
+      title: "Category",
+      thumbnail:
+        "https://t3.ftcdn.net/jpg/03/59/09/04/360_F_359090423_7kA3WC9HnDEf1I9dx4ccGFhhO90vmzhk.jpg",
+      anchor: "/category",
+    },
+    {
+      title: "Category",
+      thumbnail:
+        "https://t3.ftcdn.net/jpg/03/59/09/04/360_F_359090423_7kA3WC9HnDEf1I9dx4ccGFhhO90vmzhk.jpg",
+      anchor: "/category",
+    },
+    {
+      title: "Category",
+      thumbnail:
+        "https://t3.ftcdn.net/jpg/03/59/09/04/360_F_359090423_7kA3WC9HnDEf1I9dx4ccGFhhO90vmzhk.jpg",
+      anchor: "/category",
+    },
+    {
+      title: "Category",
+      thumbnail:
+        "https://t3.ftcdn.net/jpg/03/59/09/04/360_F_359090423_7kA3WC9HnDEf1I9dx4ccGFhhO90vmzhk.jpg",
+      anchor: "/category",
+    },
+    {
+      title: "Category",
+      thumbnail:
+        "https://t3.ftcdn.net/jpg/03/59/09/04/360_F_359090423_7kA3WC9HnDEf1I9dx4ccGFhhO90vmzhk.jpg",
+      anchor: "/category",
+    },
+    {
+      title: "Category",
+      thumbnail:
+        "https://t3.ftcdn.net/jpg/03/59/09/04/360_F_359090423_7kA3WC9HnDEf1I9dx4ccGFhhO90vmzhk.jpg",
+      anchor: "/category",
+    },
   ];
 
   return (
@@ -227,7 +317,7 @@ const Navbar32 = () => {
 
       {/* drop-down menu manipulation */}
       {dropdown && (
-        <div className="absolute top-full p-4 shadow-lg rounded w-full bg-white z-50">
+        <div className="absolute top-full p-4 shadow-lg rounded w-full bg-white h-[30rem] overflow-y-scroll z-50">
           <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-4">
             {categories.map((category, index) => (
               <div
