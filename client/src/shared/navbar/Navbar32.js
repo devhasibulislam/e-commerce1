@@ -207,13 +207,13 @@ const Navbar32 = () => {
         </div>
 
         {/* menu credentials */}
-        <div className="flex gap-x-4 lg:w-auto md:w-auto w-80 lg:overflow-hidden md:overflow-hidden overflow-x-scroll">
+        <div className="flex gap-x-4 lg:w-auto md:w-auto w-80 lg:overflow-hidden md:overflow-hidden overflow-x-scroll py-2">
           {vendorMenu.map((menu, index) => (
             <>
               <Link
                 key={index}
                 to={menu.anchor}
-                className="hover:text-primary flex gap-x-2"
+                className="hover:text-primary flex gap-x-2 whitespace-nowrap"
               >
                 {menu.title}
               </Link>
