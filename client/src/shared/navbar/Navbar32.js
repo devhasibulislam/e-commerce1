@@ -227,7 +227,7 @@ const Navbar32 = () => {
 
       {/* drop-down menu manipulation */}
       {dropdown && (
-        <div className="absolute top-full p-4 shadow-lg rounded w-full bg-white">
+        <div className="absolute top-full p-4 shadow-lg rounded w-full bg-white z-50">
           <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-4">
             {categories.map((category, index) => (
               <div
