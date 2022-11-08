@@ -1,12 +1,13 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Footer from "./shared/footer/Footer";
-import Navbar from "./shared/navbar/Navbar";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
     <section className="App">
-      <Navbar />
-      <Footer />
+      <Routes>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </section>
   );
 }
