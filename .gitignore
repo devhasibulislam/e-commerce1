@@ -9,8 +9,8 @@ client/node_modules
 client/build
 
 # misc
-client/.env.local
-client/npm-debug.log*
+client/src/.env.local
+client/src/npm-debug.log*
 client/public/google-app-password.png
 
 # ------------------------------
