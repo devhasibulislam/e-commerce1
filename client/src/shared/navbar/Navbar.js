@@ -5,7 +5,7 @@ import Navbar3 from "./Navbar3";
 
 const Navbar = () => {
   return (
-    <header>
+    <header className="border-b">
       <Navbar1 />
       <Navbar2 />
       <Navbar3 />
