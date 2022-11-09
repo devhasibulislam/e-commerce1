@@ -231,4 +231,5 @@ export default DisplayProducts;
 /**
  * Gap between cards in slider
  * https://github.com/kenwheeler/slick/issues/582
+ * https://www.cluemediator.com/add-space-between-carousel-items-in-react-slick
  */
