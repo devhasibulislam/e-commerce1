@@ -95,7 +95,7 @@ const Banner = () => {
   return (
     <section className="bg-white py-12">
       <div className="container mx-auto">
-        <div className="relative shadow">
+        <div className="relative">
           <Slider {...settings}>
             {bannerSliderImages.map((bannerSliderImage, index) => (
               <img
