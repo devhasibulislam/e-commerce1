@@ -93,7 +93,7 @@ const Banner = () => {
   };
 
   return (
-    <section className="bg-white py-8">
+    <section className="bg-white py-12">
       <div className="container mx-auto">
         <div className="relative shadow">
           <Slider {...settings}>
