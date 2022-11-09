@@ -3,3 +3,11 @@
 .App {
   font-family: "Roboto", sans-serif;
 }
+
+.slick-slide {
+  margin: 0 10px;
+}
+
+.slick-list {
+  margin: 0 -10px;
+}
