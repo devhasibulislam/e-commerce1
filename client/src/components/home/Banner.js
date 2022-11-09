@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 const Banner = () => {
+  // dummy initial images
   const bannerSliderImages = [
     "https://jssors8.azureedge.net/demos/image-slider/img/faded-monaco-scenery-evening-dark-picjumbo-com-image.jpg",
     "https://jssors8.azureedge.net/demos/image-slider/img/px-bloom-blossom-flora-65219-image.jpg",
@@ -19,7 +20,7 @@ const Banner = () => {
         onClick={onClick}
         className={`btn btn-sm btn-circle absolute bottom-2 ${
           position === "left" && "right-12"
-        } ${position === "right" && "right-2"} z-10 shadow btn-primary`}
+        } ${position === "right" && "right-2"} z-10 btn-primary text-white shadow-2xl`}
       >
         {content}
       </button>
@@ -94,7 +95,7 @@ const Banner = () => {
   return (
     <section className="bg-white py-8">
       <div className="container mx-auto">
-        <div className="relative">
+        <div className="relative shadow">
           <Slider {...settings}>
             {bannerSliderImages.map((bannerSliderImage, index) => (
               <img
