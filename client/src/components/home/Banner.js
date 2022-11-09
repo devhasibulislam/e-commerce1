@@ -18,7 +18,7 @@ const Banner = () => {
     return (
       <button
         onClick={onClick}
-        className={`btn btn-sm btn-circle absolute bottom-2 ${
+        className={`btn btn-sm btn-circle absolute top-2 ${
           position === "left" && "right-12"
         } ${position === "right" && "right-2"} z-10 btn-primary text-white shadow-2xl`}
       >
