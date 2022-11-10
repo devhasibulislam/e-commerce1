@@ -24,6 +24,51 @@ const TopRatingsFeaturedBrands = () => {
       ),
       title: "Top Ratings",
       slug: "top-ratings",
+      content: (
+        <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 lg:gap-x-4 gap-4">
+          {products.slice(0, 4).map((product) => (
+            <div
+              key={product.id}
+              className="bg-white p-4 shadow hover:shadow-md rounded"
+            >
+              <img
+                src={product.image}
+                alt={product.title}
+                className="rounded h-[127px] w-[127px] object-cover mx-auto mb-4"
+              />
+              <p className="flex mb-1">
+                {[...Array(Math.round(product.rating.rate)).keys()].map(
+                  (rating) => (
+                    <span key={rating} className="text-[#ffd05f]">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        className="w-5 h-5"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  )
+                )}
+                <span className="ml-2 text-slate-500 text-sm font-medium">
+                  ({product.rating.count})
+                </span>
+              </p>
+              <p className="text-slate-500 font-medium whitespace-nowrap overflow-hidden text-ellipsis mb-2" title={product.title}>
+                {product.title}
+              </p>
+              <p className="text-primary text-base font-semibold">
+                ${product.price}
+              </p>
+            </div>
+          ))}
+        </div>
+      ),
     },
     {
       icon: (
@@ -42,6 +87,25 @@ const TopRatingsFeaturedBrands = () => {
       ),
       title: "Featured Brands",
       slug: "featured-brands",
+      content: (
+        <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 lg:gap-x-4 gap-4">
+          {products.slice(0, 2).map((product) => (
+            <div
+              key={product.id}
+              className="bg-white p-4 shadow hover:shadow-md rounded"
+            >
+              <img
+                src={product.image}
+                alt={product.title}
+                className="rounded h-[182px] w-[270px] object-cover mx-auto mb-4"
+              />
+              <p className="text-slate-500 font-medium whitespace-nowrap overflow-hidden text-ellipsis" title={product.title}>
+                {product.title}
+              </p>
+            </div>
+          ))}
+        </div>
+      ),
     },
   ];
 
@@ -57,8 +121,8 @@ const TopRatingsFeaturedBrands = () => {
                 categorySlug={featuredRating.slug}
               />
               <div className="my-8"></div>
-
-              
+              {index === 0 && featuredRating.content}
+              {index === 1 && featuredRating.content}
             </div>
           ))}
         </div>
