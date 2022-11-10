@@ -9,7 +9,7 @@ const TopRatingsFeaturedBrands = () => {
   return (
     <section className="bg-neutral py-12">
       <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-4">
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-4 lg:gap-y-0 gap-y-8">
           {/* top ratings */}
           <div>
             {/* category header */}
