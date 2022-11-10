@@ -85,6 +85,7 @@ const Carousel = ({ visibility, cards, view }) => {
     prevArrow: <SamplePrevArrow />,
     nextArrow: <SampleNextArrow />,
     lazyLoad: true,
+    initialSlide: 0,
     responsive: [
       {
         breakpoint: 1024,
