@@ -1,5 +1,6 @@
 import React from "react";
 import Banner from "../components/home/Banner";
+import BigDiscounts from "../components/home/BigDiscounts";
 import FlashDeals from "../components/home/FlashDeals";
 import NewArrivals from "../components/home/NewArrivals";
 import TopCategories from "../components/home/TopCategories";
@@ -20,6 +21,7 @@ const Home = () => {
         <TopCategories />
         <TopRatingsFeaturedBrands />
         <NewArrivals />
+        <BigDiscounts />
       </main>
 
       {/* page footer */}
