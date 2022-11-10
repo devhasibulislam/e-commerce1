@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import "../../App.css";
 import ProductCard from "../ProductCard";
 
-const DisplayProducts = ({ products }) => {
+const Carousel = ({ visibility, products, view }) => {
   /* revealing slider with respect to products */
   // custom button
   function SimpleArrowButton({ onClick, content, position }) {
@@ -77,7 +77,7 @@ const DisplayProducts = ({ products }) => {
   const settings = {
     infinite: false,
     speed: 1000,
-    slidesToShow: 5,
+    slidesToShow: visibility,
     slidesToScroll: 1,
     adaptiveHeight: true,
     arrows: true,
@@ -113,15 +113,14 @@ const DisplayProducts = ({ products }) => {
     <section>
       {/* category contents */}
       <Slider {...settings}>
-        {products?.map((prod) => (
-          <ProductCard product={prod} />
-        ))}
+        {view === "products" &&
+          products?.map((prod) => <ProductCard product={prod} />)}
       </Slider>
     </section>
   );
 };
 
-export default DisplayProducts;
+export default Carousel;
 
 /**
  * Gap between cards in slider
