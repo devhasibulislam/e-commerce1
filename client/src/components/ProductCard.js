@@ -1,16 +1,17 @@
 import React from "react";
 
 const ProductCard = ({ product }) => {
+  const discount = (Math.random() * (55 - 12) + 12).toFixed(0);
+
   return (
     <div
-      key={product._id}
       className="bg-white rounded border hover:border-primary relative"
-      id="slider-card"
+      id="product-card"
     >
-      {/* before content */}
+      {/* discount on price */}
       <div className="absolute top-2 left-2">
         <span className="badge badge-primary text-xs font-medium text-white">
-          {product.discount}% off
+          {discount}% off
         </span>
       </div>
 
@@ -36,14 +37,14 @@ const ProductCard = ({ product }) => {
         </span>
       </div>
 
-      {/* after content */}
+      {/* focus on product card */}
       <div className="flex flex-col h-full">
-        {/* product thumbanail */}
+        {/* product thumbnail */}
         <figure>
           <img
-            src={product.thumbnail}
+            src={product.image}
             alt={product.title}
-            className="h-[282px] w-[282px] object-cover"
+            className="h-[282px] w-[282px] object-cover rounded max-w-full max-h-full"
           />
         </figure>
 
@@ -60,39 +61,37 @@ const ProductCard = ({ product }) => {
 
           {/* rating section */}
           <p className="flex">
-            {[...Array(product.ratings).keys()].map((rating) => (
-              <span key={rating} className="text-[#ffd05f]">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </span>
-            ))}
+            {[...Array(Math.round(product.rating.rate)).keys()].map(
+              (rating) => (
+                <span key={rating} className="text-[#ffd05f]">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="w-5 h-5"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </span>
+              )
+            )}
           </p>
 
           {/* pricing and carting */}
           <p className="flex justify-between items-center">
             {/* price section */}
             <span className="text-primary text-sm font-medium flex gap-x-2">
-              $
-              {(
-                product.price -
-                (product.price * product.discount) / 100
-              ).toFixed(2)}
+              ${(product.price - (product.price * discount) / 100).toFixed(2)}
               <del className="text-slate-500">{product.price}</del>
             </span>
 
             {/* add to cart button */}
             <span
-              className="btn btn-primary btn-sm btn-circle text-white"
+              className="btn btn-secondary btn-sm btn-circle text-white"
               title="add to cart"
             >
               <svg
@@ -116,3 +115,10 @@ const ProductCard = ({ product }) => {
 };
 
 export default ProductCard;
+
+/**
+ * Random number generator
+ * https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
+ * Convert float number to whole number
+ * https://stackoverflow.com/questions/596467/how-do-i-convert-a-float-number-to-a-whole-number-in-javascript
+ */

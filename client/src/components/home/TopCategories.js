@@ -33,7 +33,7 @@ const TopCategories = () => {
         <div className="my-8"></div>
 
         {/* display products */}
-        <Carousel visibility={5} products={categories} view={"categories"} />
+        <Carousel visibility={3} cards={categories} view={"categories"} />
       </div>
     </section>
   );

@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 
 function useCategory() {
-  const [products, setProducts] = useState(null);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch("products.json")
+    fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())
-      .then((data) => setProducts(data))
+      .then((data) => setCategories(data))
       .catch((err) => console.error(err));
   }, []);
 
-  return products;
+  return categories;
 }
 
 export default useCategory;

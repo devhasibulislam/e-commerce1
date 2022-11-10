@@ -1,11 +1,11 @@
 import React from "react";
-import useCategory from "../../hooks/useCategory";
 import CategoryHeader from "./CategoryHeader";
 import Carousel from "./Carousel";
+import useProduct from "../../hooks/useProduct";
 
 const FlashDeals = () => {
   /* revealing all products */
-  const products = useCategory();
+  const products = useProduct();
 
   return (
     <section className="bg-neutral py-12">
@@ -30,7 +30,7 @@ const FlashDeals = () => {
         <div className="my-8"></div>
 
         {/* display products */}
-        <Carousel visibility={5} products={products} view={"products"} />
+        <Carousel visibility={5} cards={products} view={"products"} />
       </div>
     </section>
   );

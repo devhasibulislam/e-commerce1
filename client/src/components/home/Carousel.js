@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import ProductCard from "../ProductCard";
 import CategoryCard from "./CategoryCard";
 
-const Carousel = ({ visibility, products, view }) => {
+const Carousel = ({ visibility, cards, view }) => {
   /* revealing slider with respect to products */
   // custom button
   function SimpleArrowButton({ onClick, content, position }) {
@@ -88,7 +88,7 @@ const Carousel = ({ visibility, products, view }) => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: visibility === 3 ? 2 : 3,
           slidesToScroll: 1,
         },
       },
@@ -115,14 +115,14 @@ const Carousel = ({ visibility, products, view }) => {
       <Slider {...settings}>
         {/* display products */}
         {view === "products" &&
-          products?.map((prod) => (
-            <ProductCard key={prod._id} product={prod} />
+          cards?.map((card) => (
+            <ProductCard key={card._id} product={card} />
           ))}
 
         {/* display categories */}
         {view === "categories" &&
-          products?.map((cate) => (
-            <CategoryCard key={cate._id} category={cate} />
+          cards?.map((card) => (
+            <CategoryCard key={card._id} category={card} />
           ))}
       </Slider>
     </section>
