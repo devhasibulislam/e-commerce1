@@ -1,7 +1,7 @@
 import React from "react";
 import useCategory from "../../hooks/useCategory";
 import CategoryHeader from "./CategoryHeader";
-import DisplayProducts from "./DisplayProducts";
+import Carousel from "./Carousel";
 
 const FlashDeals = () => {
   /* revealing all products */
@@ -30,7 +30,7 @@ const FlashDeals = () => {
         <div className="my-8"></div>
 
         {/* display products */}
-        <DisplayProducts products={products} />
+        <Carousel visibility={5} products={products} view={"products"} />
       </div>
     </section>
   );
