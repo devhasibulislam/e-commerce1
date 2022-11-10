@@ -124,7 +124,11 @@ const Carousel = ({ visibility, cards, view }) => {
 
         {/* display new arrivals */}
         {view === "newArrival" &&
-          cards?.map((card) => <ArrivalsCard key={card.id} product={card} />)}
+          cards?.map((card) => <ArrivalsCard key={card.id} product={card} reduction={false} />)}
+
+        {/* display big discounts */}
+        {view === "bigDiscount" &&
+          cards?.map((card) => <ArrivalsCard key={card.id} product={card} reduction={true} />)}
       </Slider>
     </section>
   );

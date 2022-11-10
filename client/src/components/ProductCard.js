@@ -44,19 +44,17 @@ const ProductCard = ({ product }) => {
           <img
             src={product.image}
             alt={product.title}
-            className="h-[282px] w-[282px] object-cover rounded max-w-full max-h-full"
+            className="h-[282px] w-[282px] object-cover rounded mx-auto max-w-full max-h-full"
           />
         </figure>
 
         <div className="card-body mt-auto justify-end">
           {/* product title section */}
           <h2
-            className="text-slate-500 font-medium text-lg"
+            className="text-slate-500 font-medium text-lg whitespace-nowrap overflow-hidden text-ellipsis"
             title={product.title}
           >
-            {product.title.length > 20
-              ? product.title.slice(0, 20) + " ..."
-              : product.title}
+            {product.title}
           </h2>
 
           {/* rating section */}

@@ -21,7 +21,7 @@ const Home = () => {
         <TopCategories />
         <TopRatingsFeaturedBrands />
         <NewArrivals />
-        {/* <BigDiscounts /> */}
+        <BigDiscounts />
       </main>
 
       {/* page footer */}
