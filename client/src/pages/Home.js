@@ -1,6 +1,7 @@
 import React from "react";
 import Banner from "../components/home/Banner";
 import FlashDeals from "../components/home/FlashDeals";
+import NewArrivals from "../components/home/NewArrivals";
 import TopCategories from "../components/home/TopCategories";
 import TopRatingsFeaturedBrands from "../components/home/TopRatingsFeaturedBrands";
 import Footer from "../shared/footer/Footer";
@@ -18,6 +19,7 @@ const Home = () => {
         <FlashDeals />
         <TopCategories />
         <TopRatingsFeaturedBrands />
+        <NewArrivals />
       </main>
 
       {/* page footer */}
