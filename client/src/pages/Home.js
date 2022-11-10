@@ -1,6 +1,7 @@
 import React from "react";
 import Banner from "../components/home/Banner";
 import FlashDeals from "../components/home/FlashDeals";
+import TopCategories from "../components/home/TopCategories";
 import Footer from "../shared/footer/Footer";
 import Navbar from "../shared/navbar/Navbar";
 
@@ -14,6 +15,7 @@ const Home = () => {
       <main>
         <Banner />
         <FlashDeals />
+        <TopCategories />
       </main>
 
       {/* page footer */}
