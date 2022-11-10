@@ -6,11 +6,11 @@ import Slider from "react-slick";
 const Banner = () => {
   // dummy initial images
   const bannerSliderImages = [
-    "https://jssors8.azureedge.net/demos/image-slider/img/faded-monaco-scenery-evening-dark-picjumbo-com-image.jpg",
-    "https://jssors8.azureedge.net/demos/image-slider/img/px-bloom-blossom-flora-65219-image.jpg",
-    "https://jssors8.azureedge.net/demos/image-slider/img/px-action-athlete-athletes-848618-image.jpg",
-    "https://jssors8.azureedge.net/demos/image-slider/img/px-beach-daylight-fun-1430675-image.jpg",
-    "https://jssors8.azureedge.net/demos/image-slider/img/px-fun-man-person-2361598-image.jpg",
+    "https://cdn.shopify.com/s/files/1/0057/8938/4802/files/stone-banner_3_2000x.jpg?v=1667201063",
+    "https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Banner_2000x650_1_2000x.png?v=1667364749",
+    "https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Banner-WU-Desktop_5b29ad21-1d68-4abd-89ba-0b9521066f37_2000x.jpg?v=1667996430",
+    "https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Banner_3_2000x.png?v=1667832145",
+    "https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Saving-web_1_1_2000x.png?v=1667369063",
   ];
 
   // custom button
