@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import ProductCard from "../ProductCard";
 import CategoryCard from "./CategoryCard";
+import ArrivalsCard from "./ArrivalsCard";
 
 const Carousel = ({ visibility, cards, view }) => {
   /* revealing slider with respect to products */
@@ -115,15 +116,15 @@ const Carousel = ({ visibility, cards, view }) => {
       <Slider {...settings}>
         {/* display products */}
         {view === "products" &&
-          cards?.map((card) => (
-            <ProductCard key={card._id} product={card} />
-          ))}
+          cards?.map((card) => <ProductCard key={card.id} product={card} />)}
 
         {/* display categories */}
         {view === "categories" &&
-          cards?.map((card) => (
-            <CategoryCard key={card._id} category={card} />
-          ))}
+          cards?.map((card) => <CategoryCard key={card.id} category={card} />)}
+
+        {/* display new arrivals */}
+        {view === "newArrival" &&
+          cards?.map((card) => <ArrivalsCard key={card.id} product={card} />)}
       </Slider>
     </section>
   );

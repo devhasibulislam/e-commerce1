@@ -1,10 +1,10 @@
 import React from "react";
-import useCategory from "../../hooks/useCategory";
+import useProduct from "../../hooks/useProduct";
 import Carousel from "./Carousel";
 import CategoryHeader from "./CategoryHeader";
 
 const NewArrivals = () => {
-  const categories = useCategory();
+  const products = useProduct();
 
   return (
     <section className="bg-white py-12">
@@ -30,7 +30,7 @@ const NewArrivals = () => {
         <div className="my-8"></div>
 
         {/* display products */}
-        <Carousel visibility={5} products={categories} view={"categories"} />
+        <Carousel visibility={5} cards={products} view={"newArrival"} />
       </div>
     </section>
   );
