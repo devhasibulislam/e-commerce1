@@ -2,8 +2,8 @@ import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import "../../App.css";
 import ProductCard from "../ProductCard";
+import CategoryCard from "./CategoryCard";
 
 const Carousel = ({ visibility, products, view }) => {
   /* revealing slider with respect to products */
@@ -113,8 +113,17 @@ const Carousel = ({ visibility, products, view }) => {
     <section>
       {/* category contents */}
       <Slider {...settings}>
+        {/* display products */}
         {view === "products" &&
-          products?.map((prod) => <ProductCard product={prod} />)}
+          products?.map((prod) => (
+            <ProductCard key={prod._id} product={prod} />
+          ))}
+
+        {/* display categories */}
+        {view === "categories" &&
+          products?.map((cate) => (
+            <CategoryCard key={cate._id} category={cate} />
+          ))}
       </Slider>
     </section>
   );
