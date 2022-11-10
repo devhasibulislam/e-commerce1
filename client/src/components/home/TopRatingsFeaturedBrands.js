@@ -1,6 +1,5 @@
 import React from "react";
 import useProduct from "../../hooks/useProduct";
-import Carousel from "./Carousel";
 import CategoryHeader from "./CategoryHeader";
 
 const TopRatingsFeaturedBrands = () => {

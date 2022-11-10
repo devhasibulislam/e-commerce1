@@ -20,8 +20,8 @@ const Home = () => {
         <FlashDeals />
         <TopCategories />
         <TopRatingsFeaturedBrands />
-        {/* <NewArrivals />
-        <BigDiscounts /> */}
+        <NewArrivals />
+        {/* <BigDiscounts /> */}
       </main>
 
       {/* page footer */}
