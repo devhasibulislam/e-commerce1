@@ -1,5 +1,5 @@
 import React from "react";
-import { addToCart, checkInCart } from "../hooks/useCart";
+import { addToCart, checkInCart, removeFromCart } from "../hooks/useCart";
 
 const ProductCard = ({ product, setShowModal, setProduct }) => {
   const discount = (Math.random() * (55 - 12) + 12).toFixed(0);
@@ -95,8 +95,8 @@ const ProductCard = ({ product, setShowModal, setProduct }) => {
             {checkInCart(product.id) ? (
               <span
                 className="btn btn-primary btn-sm btn-circle text-white"
-                title="add to cart"
-                onClick={() => addToCart(product)}
+                title="remove from cart"
+                onClick={() => removeFromCart(product.id)}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
