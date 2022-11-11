@@ -1,4 +1,5 @@
 import React from "react";
+import { addToCart, checkInCart } from "../hooks/useCart";
 
 const ProductCard = ({ product, setShowModal, setProduct }) => {
   const discount = (Math.random() * (55 - 12) + 12).toFixed(0);
@@ -91,24 +92,47 @@ const ProductCard = ({ product, setShowModal, setProduct }) => {
               <del className="text-slate-500">{product.price}</del>
             </span>
 
-            {/* add to cart button */}
-            <span
-              className="btn btn-secondary btn-sm btn-circle text-white"
-              title="add to cart"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="w-6 h-6 text-white"
+            {checkInCart(product.id) ? (
+              <span
+                className="btn btn-primary btn-sm btn-circle text-white"
+                title="add to cart"
+                onClick={() => addToCart(product)}
               >
-                <path
-                  fillRule="evenodd"
-                  d="M12 3.75a.75.75 0 01.75.75v6.75h6.75a.75.75 0 010 1.5h-6.75v6.75a.75.75 0 01-1.5 0v-6.75H4.5a.75.75 0 010-1.5h6.75V4.5a.75.75 0 01.75-.75z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </span>
+            ) : (
+              <span
+                className="btn btn-secondary btn-sm btn-circle text-white"
+                title="add to cart"
+                onClick={() => addToCart(product)}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-6 h-6 text-white"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M12 3.75a.75.75 0 01.75.75v6.75h6.75a.75.75 0 010 1.5h-6.75v6.75a.75.75 0 01-1.5 0v-6.75H4.5a.75.75 0 010-1.5h6.75V4.5a.75.75 0 01.75-.75z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </span>
+            )}
           </p>
         </div>
       </div>
