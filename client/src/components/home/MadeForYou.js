@@ -3,7 +3,7 @@ import useProduct from "../../hooks/useProduct";
 import ProductCard from "../ProductCard";
 import CategoryHeader from "./CategoryHeader";
 
-const MadeForYou = () => {
+const MadeForYou = ({ setShowModal, setProduct }) => {
   const products = useProduct();
 
   return (
@@ -31,7 +31,12 @@ const MadeForYou = () => {
         {/* display products */}
         <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 gap-y-4">
           {products?.slice(0, 15)?.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard
+              key={product.id}
+              product={product}
+              setShowModal={setShowModal}
+              setProduct={setProduct}
+            />
           ))}
         </div>
       </div>
