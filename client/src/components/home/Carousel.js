@@ -6,7 +6,7 @@ import ProductCard from "../ProductCard";
 import CategoryCard from "./CategoryCard";
 import ArrivalsCard from "./ArrivalsCard";
 
-const Carousel = ({ visibility, cards, view }) => {
+const Carousel = ({ visibility, cards, view, setShowModal, setProduct }) => {
   /* revealing slider with respect to products */
   // custom button
   function SimpleArrowButton({ onClick, content, position }) {
@@ -120,7 +120,7 @@ const Carousel = ({ visibility, cards, view }) => {
       <Slider {...settings}>
         {/* display products */}
         {view === "products" &&
-          cards?.map((card) => <ProductCard key={card.id} product={card} />)}
+          cards?.map((card) => <ProductCard key={card.id} product={card} setShowModal={setShowModal} setProduct={setProduct} />)}
 
         {/* display categories */}
         {view === "categories" &&
