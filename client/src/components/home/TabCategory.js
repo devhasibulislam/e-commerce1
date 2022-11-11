@@ -40,10 +40,10 @@ const TabCategory = () => {
         {/* tab categories */}
         <div className="flex lg:gap-x-12 md:gap-x-8">
           <div className="lg:block md:block hidden">
-            <div className="flex flex-col gap-y-3 bg-neutral h-fit py-4 px-2 rounded">
+            <div className="flex flex-col gap-y-3 bg-neutral h-fit p-4 rounded shadow">
               {categories.map((cate, indx) => (
                 <p
-                  className="flex gap-x-2 bg-white p-2 rounded whitespace-nowrap cursor-pointer"
+                  className="flex gap-x-2 bg-white p-2 rounded whitespace-nowrap cursor-pointer shadow-sm hover:text-primary"
                   onClick={() => setCategory(cate)}
                 >
                   <svg
