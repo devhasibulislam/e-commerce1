@@ -16,7 +16,7 @@ function useCategoryProduct(category) {
         setTemp(data);
       })
       .catch((err) => console.error(err));
-  }, [temp]);
+  }, [temp, category]);
 
   return products;
 }
