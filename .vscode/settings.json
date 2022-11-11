@@ -8,7 +8,8 @@
     "middlewares",
     "noopener",
     "noreferrer",
-    "tailwindcss"
+    "tailwindcss",
+    "ysos"
   ],
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
