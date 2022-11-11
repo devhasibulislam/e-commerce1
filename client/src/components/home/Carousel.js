@@ -92,6 +92,7 @@ const Carousel = ({ visibility, cards, view }) => {
         settings: {
           slidesToShow: visibility === 3 ? 2 : 3,
           slidesToScroll: 1,
+          initialSlide: 0,
         },
       },
       {
@@ -99,6 +100,7 @@ const Carousel = ({ visibility, cards, view }) => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+          initialSlide: 0,
         },
       },
       {
@@ -106,6 +108,7 @@ const Carousel = ({ visibility, cards, view }) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          initialSlide: 0,
         },
       },
     ],
