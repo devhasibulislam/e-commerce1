@@ -67,7 +67,7 @@ const TabCategory = () => {
               ))}
             </div>
           </div>
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-y-4">
             {products?.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
