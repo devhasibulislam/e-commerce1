@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 function useCategoryProduct(category) {
   const [products, setProducts] = useState([]);
+  const [temp, setTemp] = useState({});
 
   useEffect(() => {
     fetch(
@@ -10,9 +11,12 @@ function useCategoryProduct(category) {
         : `https://fakestoreapi.com/products/category/${category}`
     )
       .then((res) => res.json())
-      .then((data) => setProducts(data))
+      .then((data) => {
+        setProducts(data);
+        setTemp(data);
+      })
       .catch((err) => console.error(err));
-  }, [category]);
+  }, [temp]);
 
   return products;
 }
