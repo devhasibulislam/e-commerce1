@@ -3,6 +3,7 @@ import Banner from "../components/home/Banner";
 import BigDiscounts from "../components/home/BigDiscounts";
 import FlashDeals from "../components/home/FlashDeals";
 import NewArrivals from "../components/home/NewArrivals";
+import TabCategory from "../components/home/TabCategory";
 import TopCategories from "../components/home/TopCategories";
 import TopRatingsFeaturedBrands from "../components/home/TopRatingsFeaturedBrands";
 import Footer from "../shared/footer/Footer";
@@ -22,6 +23,7 @@ const Home = () => {
         <TopRatingsFeaturedBrands />
         <NewArrivals />
         <BigDiscounts />
+        <TabCategory />
       </main>
 
       {/* page footer */}
