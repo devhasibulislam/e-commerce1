@@ -3,7 +3,7 @@ import CategoryHeader from "./CategoryHeader";
 import Carousel from "./Carousel";
 import useProduct from "../../hooks/useProduct";
 
-const FlashDeals = () => {
+const FlashDeals = ({ setShowModal, setProduct }) => {
   /* revealing all products */
   const products = useProduct();
 
@@ -30,7 +30,13 @@ const FlashDeals = () => {
         <div className="my-8"></div>
 
         {/* display products */}
-        <Carousel visibility={5} cards={products} view={"products"} />
+        <Carousel
+          visibility={5}
+          cards={products}
+          view={"products"}
+          setShowModal={setShowModal}
+          setProduct={setProduct}
+        />
       </div>
     </section>
   );
