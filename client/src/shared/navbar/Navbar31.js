@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../../components/Button";
+import { getFromCart } from "../../hooks/useCart";
 import Image from "../../hooks/useImage";
 
 const Navbar31 = () => {
+  const [cart, setCart] = useState([]);
+  const [price, setPrice] = useState([]);
+  const products = getFromCart();
+
+  useEffect(() => {
+    setCart(products);
+    let sum = 0;
+    const prices = cart.map((product) => (sum += product.price));
+    setPrice(prices);
+  }, [products, cart]);
+
   const authentication = [
     {
       anchorLogo: (
@@ -89,7 +101,7 @@ const Navbar31 = () => {
                 />
               </svg>
               <span className="badge badge-primary badge-sm indicator-item">
-                8
+                {cart?.length}
               </span>
             </div>
           </label>
@@ -98,8 +110,10 @@ const Navbar31 = () => {
             className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow rounded"
           >
             <div className="card-body">
-              <span className="font-bold text-lg">8 Items</span>
-              <span className="text-info">Subtotal: $999</span>
+              <span className="font-bold text-lg">{cart?.length} Items</span>
+              <span className="text-info">
+                Subtotal: ${price.length === 0 ? 0 : price[price.length - 1]}
+              </span>
               <div className="card-actions">
                 <Button>View Cart</Button>
               </div>
