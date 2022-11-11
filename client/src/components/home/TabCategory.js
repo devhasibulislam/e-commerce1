@@ -4,7 +4,7 @@ import useCategoryProduct from "../../hooks/useCategoryProduct";
 import ProductCard from "../ProductCard";
 import CategoryHeader from "./CategoryHeader";
 
-const TabCategory = () => {
+const TabCategory = ({ setShowModal, setProduct }) => {
   const categories = useCategory();
   const [category, setCategory] = useState("");
   const products = useCategoryProduct(category);
@@ -69,7 +69,12 @@ const TabCategory = () => {
           </div>
           <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-y-4">
             {products?.slice(0, 12)?.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard
+                key={product.id}
+                product={product}
+                setShowModal={setShowModal}
+                setProduct={setProduct}
+              />
             ))}
           </div>
         </div>
