@@ -68,7 +68,7 @@ const Login = () => {
                   Password
                 </label>
                 <Link
-                  to="#"
+                  to="/reset"
                   className="text-sm text-blue-600 hover:underline focus:text-blue-800 tooltip tooltip-primary"
                   data-tip="Renew your password"
                 >
