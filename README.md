@@ -13,10 +13,10 @@
 
 # Contributors
 
-- [Hasibul Islam](https://github.com/hasibulislam999) - `1935202062`
-- [Rayhan Khan Durjoy](https://github.com/RKD021) - `1935202002`
-- [Sayem Imran Somrat](https://github.com/sayemsomrat01) - `1935202029`
-- [Sabbir Hassan Mithu](https://github.com/sh-mithu) - `1935202073`
+- [Hasibul Islam](https://github.com/hasibulislam999) - `hasib143sl@gmail.com` | `hasibulislam999`
+- [Rayhan Khan Durjoy](https://github.com/RKD021) - `rayhankhan52cu@gmail.com` | `RKD021`
+- [Sayem Imran Somrat](https://github.com/sayemsomrat01) - `sayemsomrat01@gmail.com` | `sayemsomrat01`
+- [Sabbir Hassan Mithu](https://github.com/sh-mithu) - `sabbirhasanmithu420@gmail.com` | `sh-mithu`
 
 # Make it own
 
