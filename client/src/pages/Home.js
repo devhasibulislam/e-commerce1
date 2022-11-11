@@ -1,6 +1,7 @@
 import React from "react";
 import Banner from "../components/home/Banner";
 import BigDiscounts from "../components/home/BigDiscounts";
+import CycleStyle from "../components/home/CycleStyle";
 import FlashDeals from "../components/home/FlashDeals";
 import MadeForYou from "../components/home/MadeForYou";
 import NewArrivals from "../components/home/NewArrivals";
@@ -26,6 +27,7 @@ const Home = () => {
         <BigDiscounts />
         <TabCategory />
         <MadeForYou />
+        <CycleStyle />
       </main>
 
       {/* page footer */}
