@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, setShowModal, setProduct }) => {
   const discount = (Math.random() * (55 - 12) + 12).toFixed(0);
 
   return (
@@ -20,6 +20,10 @@ const ProductCard = ({ product }) => {
         <span
           className="btn btn-primary btn-sm btn-circle text-white"
           title="brief overview"
+          onClick={() => {
+            setShowModal(true);
+            setProduct(product);
+          }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
