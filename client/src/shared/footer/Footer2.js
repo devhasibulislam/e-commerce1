@@ -49,7 +49,7 @@ const Footer2 = () => {
         <Link to={"/home"}>
           <Image src={"logo.png"} height="30px" alt="footer logo" />
         </Link>
-        <p>Copyright © {thisYear} - All right reserved by <span className="text-accent">Yes Sir, Okay Sir</span>.</p>
+        <p>Copyright © {thisYear} - All right reserved by <span className="text-accent">e-commerce</span>.</p>
       </div>
       <div className="md:place-self-center md:justify-self-end">
         <div className="grid grid-flow-col gap-4">
