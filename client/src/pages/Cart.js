@@ -115,7 +115,7 @@ const Cart = () => {
                 ))}
               </div>
               <div className="bg-white h-fit lg:w-2/5 w-full shadow rounded p-4">
-                Total price: $<span className="text-primary font-semibold">{totalPrice[totalPrice.length - 1]}</span>
+                Total price: $<span className="text-primary font-semibold">{totalPrice.length === 0 ? "0.00" : totalPrice[totalPrice.length - 1]}</span>
               </div>
             </div>
           </div>
