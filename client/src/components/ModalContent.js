@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { addToCart, checkInCart } from "../hooks/useCart";
 
 const ModalContent = ({ product }) => {
+  const [hideBtn, setHideBtn] = useState(false);
+
   function Initial({ children }) {
     return (
       <span className="text-slate-500 text-sm font-medium">{children}</span>
@@ -49,11 +52,24 @@ const ModalContent = ({ product }) => {
               )}
               <span className="text-sm">({product.rating.count})</span>
             </p>
-            <button className="btn btn-sm btn-primary w-fit px-4 rounded capitalize text-white">Add to cart</button>
+            {!checkInCart(product.id) && (
+              <button
+                className={`btn btn-sm btn-primary w-fit px-4 rounded capitalize text-white ${
+                  hideBtn && "hidden"
+                }`}
+                onClick={() => {
+                  addToCart(product);
+                  setHideBtn(true);
+                }}
+              >
+                Add to cart
+              </button>
+            )}
           </div>
         </div>
       </div>
     </section>
   );
 };
+
 export default ModalContent;
