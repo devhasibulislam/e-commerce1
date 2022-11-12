@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
 import { getFromCart } from "../../hooks/useCart";
 import Image from "../../hooks/useImage";
@@ -8,6 +8,7 @@ const Navbar31 = () => {
   const [cart, setCart] = useState([]);
   const [price, setPrice] = useState([]);
   const products = getFromCart();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setCart(products);
@@ -114,7 +115,7 @@ const Navbar31 = () => {
               <span className="text-info">
                 Subtotal: ${price.length === 0 ? 0 : price[price.length - 1]}
               </span>
-              <div className="card-actions">
+              <div className="card-actions" onClick={() => navigate("/cart")}>
                 <Button>View Cart</Button>
               </div>
             </div>
