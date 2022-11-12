@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
@@ -13,6 +14,9 @@ function App() {
         {/* home or root pages */}
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
+
+        {/* cart based pages */}
+        <Route path="/cart" element={<Cart />} />
 
         {/* authentications pages */}
         <Route path="/login" element={<Login />} />
