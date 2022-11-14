@@ -1,23 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {},
   },
-  plugins: [require("daisyui")],
-  daisyui: {
-    themes: [
-      {
-        ecommercetheme: {
-          primary: "#f54962",
-          secondary: "#0c315e",
-          accent: "#47cb53",
-          neutral: "#f6f9fc",
-          "base-100": "#ffffff",
-        },
-      },
-      "light",
-      "cupcake"
-    ],
-  },
+  plugins: [],
 };
+
+/**
+ * Parsing error : Cannot find module 'next/babel'
+ * https://stackoverflow.com/questions/68163385/parsing-error-cannot-find-module-next-babel
+ */
