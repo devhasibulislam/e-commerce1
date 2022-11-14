@@ -2,13 +2,32 @@
 
 > Elaborate client side credentials with no brief
 
+## Technologies
+
+- Next.js
+- Tailwind CSS  
+
 # Server Side Rendering
 
 > Elaborate server side credentials with no brief
 
+## Technologies
+
+- Node.js
+- Express.js
+- Cors Policy
+- Bcrypt.js
+- Cloudinary
+- Dotenv
+- JWT
+- Mongoose
+- Multer.js
+- Nodemailer
+- Validator.js
+
 # Deployment link
 
-- Live link: https://ecommerce-ecomm-project.vercel.app/
+- Live link: https://ecommerce-se.vercel.app
 - Repo link: https://github.com/hasibulislam999/e-commerce
 
 # Contributors
