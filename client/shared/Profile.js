@@ -24,7 +24,7 @@ const Profile = () => {
             clipRule="evenodd"
           />
         </svg>
-        <span className="lg:hidden">View Cart</span>
+        <span className="lg:hidden whitespace-nowrap">View Profile</span>
 
         {/* submenu for profile section */}
         {openProfileMenu && <ProfileSubmenu />}

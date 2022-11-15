@@ -19,7 +19,7 @@ const Cart = () => {
             clipRule="evenodd"
           />
         </svg>
-        <span className="lg:hidden">View Cart</span>
+        <span className="lg:hidden whitespace-nowrap">View Cart</span>
       </span>
     </>
   );
