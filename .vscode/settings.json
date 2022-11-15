@@ -8,6 +8,7 @@
     "middlewares",
     "noopener",
     "noreferrer",
+    "Signin",
     "tailwindcss",
     "ysos"
   ],
