@@ -11,7 +11,7 @@ require("dotenv").config();
 
 /* internal imports */
 const app = require("./app");
-const consoleMessage = require("./utils/consoleMessage.util");
+const consoleMessage = require("./utilities/consoleMessage.utility");
 
 /* database connection */
 mongoose
@@ -22,7 +22,7 @@ mongoose
   })
   .then(() =>
     consoleMessage.successMessage(
-      `Establish connection on ${process.env.URI_STRING}`
+      `Establish connection with ${process.env.DB_NAME}`
     )
   )
   .catch((error) => consoleMessage.errorMessage(error.message));
