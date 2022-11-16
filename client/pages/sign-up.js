@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Title from "../components/Title";
-import AccountBanner from "../components/AccountBanner";
-import TinyLoading from "../components/TinyLoading";
-import SmallLoading from "../components/SmallLoading";
+import AccountBanner from "../components/account/AccountBanner";
+import TinyLoading from "../components/loading/TinyLoading";
+import SmallLoading from "../components/loading/SmallLoading";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import AccountButton from "../components/AccountButton";
-import FormLogo from "../components/FormLogo";
+import AccountButton from "../components/account/AccountButton";
+import FormLogo from "../components/account/FormLogo";
 
 const Signup = () => {
   const [avatarLoading, setAvatarLoading] = useState(false);
@@ -197,7 +197,7 @@ const Signup = () => {
                           className="rounded shadow"
                         />
                         <p className="text-sm font-medium flex flex-col">
-                          {avatar.name.split("/")[2].split("_")[1]}
+                          {avatar.name.split("/")[1].split("_")[1]}
                           <span className="bg-green-500 w-fit px-2 rounded-xl text-white">
                             Avatar Uploaded
                           </span>

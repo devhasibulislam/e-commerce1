@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Title from "../components/Title";
-import AccountBanner from "../components/AccountBanner";
-import AccountButton from "../components/AccountButton";
+import AccountBanner from "../components/account/AccountBanner";
+import AccountButton from "../components/account/AccountButton";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import SmallLoading from "../components/SmallLoading";
-import FormLogo from "../components/FormLogo";
+import SmallLoading from "../components/loading/SmallLoading";
+import FormLogo from "../components/account/FormLogo";
 
 const Forgot = () => {
   const [loading, setLoading] = useState(false);
@@ -85,21 +85,13 @@ const Forgot = () => {
                   </form>
                 )}
                 <p className="mt-6 text-xs text-gray-600 text-center">
-                  Don't have an account?
+                  Remember your account password?
                   <Link
-                    href="/sign-up"
+                    href="/sign-in"
                     className="border-b border-gray-500 border-dotted"
                   >
                     {" "}
-                    Create one{" "}
-                  </Link>
-                  or if you forget password then
-                  <Link
-                    href="/reset-password"
-                    className="border-b border-gray-500 border-dotted"
-                  >
-                    {" "}
-                    Reset password
+                    Login here!
                   </Link>
                 </p>
               </div>

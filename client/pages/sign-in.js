@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Title from "../components/Title";
-import AccountBanner from "../components/AccountBanner";
+import AccountBanner from "../components/account/AccountBanner";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import SmallLoading from "../components/SmallLoading";
-import AccountButton from "../components/AccountButton";
-import FormLogo from "../components/FormLogo";
+import SmallLoading from "../components/loading/SmallLoading";
+import AccountButton from "../components/account/AccountButton";
+import FormLogo from "../components/account/FormLogo";
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Loading from "../components/Loading";
+import Loading from "../components/loading/Loading";
 import useMyself from "../utils/useMyself";
 import Cart from "./Cart";
 import Categories from "./Categories";
