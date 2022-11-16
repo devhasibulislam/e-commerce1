@@ -1,5 +1,7 @@
+/* external import */
+const cloudinary = require("cloudinary");
+
 /* internal imports */
-const { findById } = require("../schemas/user.schema");
 const User = require("../schemas/user.schema");
 const emailConfirmationUtility = require("../utilities/emailConfirmation.utility");
 
@@ -135,6 +137,14 @@ exports.removeAnUser = async (id) => {
     return { invalidRole: true };
   }
 
+  const imgID = user.avatar.name;
+  await cloudinary.uploader.destroy(imgID);
+
   const result = await User.findByIdAndDelete(id);
   return result;
 };
+
+/**
+ * Cloudinary delete image easily - MERN stack
+ * https://www.youtube.com/watch?v=-fmfhNz9B-c
+ */
