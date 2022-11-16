@@ -8,11 +8,11 @@ import SmallLoading from "../components/SmallLoading";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AccountButton from "../components/AccountButton";
+import FormLogo from "../components/FormLogo";
 
 const Signup = () => {
   const [avatarLoading, setAvatarLoading] = useState(false);
   const [userLoading, setUserLoading] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
   const [avatar, setAvatar] = useState(null);
 
   // upload avatar
@@ -22,7 +22,7 @@ const Signup = () => {
 
     const uploadAvatar = async () => {
       setAvatarLoading(true);
-      const request = await fetch(`https://ecommerce-se.onrender.com/user/avatar`, {
+      const request = await fetch(`http://localhost:8080/user/avatar`, {
         method: "POST",
         body: formData,
       });
@@ -57,7 +57,7 @@ const Signup = () => {
 
     const signupUser = async () => {
       setUserLoading(true);
-      const request = await fetch(`https://ecommerce-se.onrender.com/user/sign-up`, {
+      const request = await fetch(`http://localhost:8080/user/sign-up`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -68,7 +68,6 @@ const Signup = () => {
       if (response.acknowledgement) {
         toast.success(response.description);
         setUserLoading(false);
-        setShowAlert(true);
         event.target.reset();
       } else {
         setUserLoading(false);
@@ -84,16 +83,7 @@ const Signup = () => {
       <div className="max-w-screen-xl m-0 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center flex-1">
         <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
           <div className="w-fit mx-auto">
-            <Link href="/">
-              <Image
-                src={"/logo.png"}
-                height={39}
-                width={128}
-                alt="E-Commerce Logo"
-                title="E-Commerce Logo"
-                className="w-32 mx-auto"
-              />
-            </Link>
+            <FormLogo />
           </div>
           <div className="mt-12 flex flex-col items-center">
             <h1 className="text-2xl xl:text-3xl font-extrabold">

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import Title from "../components/Title";
 import AccountBanner from "../components/AccountBanner";
@@ -7,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SmallLoading from "../components/SmallLoading";
 import AccountButton from "../components/AccountButton";
+import FormLogo from "../components/FormLogo";
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);
@@ -21,7 +21,7 @@ const Signin = () => {
 
     const signinUser = async () => {
       setLoading(true);
-      const request = await fetch(`https://ecommerce-se.onrender.com/user/sign-in`, {
+      const request = await fetch(`http://localhost:8080/user/sign-in`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -31,8 +31,8 @@ const Signin = () => {
       const response = await request.json();
       if (response.acknowledgement) {
         localStorage.setItem("accessToken", response.accessToken);
-        setLoading(false);
         toast.success(response.description);
+        setLoading(false);
         event.target.reset();
       } else {
         setLoading(false);
@@ -48,16 +48,7 @@ const Signin = () => {
       <div className="max-w-screen-xl m-0 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center flex-1">
         <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
           <div className="w-fit mx-auto">
-            <Link href="/">
-              <Image
-                src={"/logo.png"}
-                height={39}
-                width={128}
-                alt="E-Commerce Logo"
-                title="E-Commerce Logo"
-                className="w-32 mx-auto"
-              />
-            </Link>
+            <FormLogo />
           </div>
           <div className="mt-12 flex flex-col items-center">
             <h1 className="text-2xl xl:text-3xl font-extrabold">
