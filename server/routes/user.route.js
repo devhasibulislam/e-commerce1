@@ -19,11 +19,10 @@ const router = express.Router();
 
 /* router methods integration */
 // upload user avatar
-router.post(
-  "/avatar",
-  uploader.single("avatar"),
-  userController.cloudinaryUpload
-);
+router
+  .route("/avatar")
+  .post(uploader.single("avatar"), userController.cloudinaryUpload)
+  .patch(uploader.single("avatar"), userController.cloudinaryUpdate);
 
 // sign up an user with confirmation
 router
@@ -50,6 +49,14 @@ router
   .route("/reset-password")
   .get(userController.confirmPasswordReset)
   .patch(userController.forgotPassword);
+
+// update an user
+router.patch(
+  "/update-user",
+  verifyTokenMiddleware,
+  authorizeRoleMiddleware("admin", "buyer", "seller", "supplier", "deliverer"),
+  userController.updateUser
+);
 
 // remove an user account
 router.delete(

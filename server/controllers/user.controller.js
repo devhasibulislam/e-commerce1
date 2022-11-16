@@ -25,6 +25,22 @@ exports.cloudinaryUpload = async (req, res, next) => {
   }
 };
 
+exports.cloudinaryUpdate = async (req, res, next) => {
+  try {
+    await userService.cloudinaryUpdate(req.query.filename);
+    const result = req.file;
+
+    res.status(202).json({
+      acknowledgement: true,
+      message: "Accepted",
+      description: "Updating complete to Cloudinary",
+      data: result,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 /* sign up an user */
 exports.signUpAnUser = async (req, res, next) => {
   try {
@@ -209,6 +225,21 @@ exports.confirmPasswordReset = async (req, res, next) => {
         phone: user.phone,
         role: user.role,
       },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+exports.updateUser = async (req, res, next) => {
+  try {
+    const result = await userService.updateUser(req.query.email, req.body);
+
+    res.status(200).json({
+      acknowledgement: true,
+      message: "OK",
+      description: "New password availability acceded successfully",
+      data: result,
     });
   } catch (error) {
     next(error);

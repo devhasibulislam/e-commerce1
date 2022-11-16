@@ -144,6 +144,18 @@ exports.removeAnUser = async (id) => {
   return result;
 };
 
+exports.cloudinaryUpdate = async (filename) => {
+  await cloudinary.uploader.destroy(filename);
+};
+
+exports.updateUser = async (email, data) => {
+  const result = await User.findOneAndUpdate(
+    { email: email },
+    { $set: data },
+  );
+  return result;
+};
+
 /**
  * Cloudinary delete image easily - MERN stack
  * https://www.youtube.com/watch?v=-fmfhNz9B-c
