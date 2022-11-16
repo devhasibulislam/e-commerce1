@@ -24,7 +24,7 @@ const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: async (req, file) => {
     return {
-      folder: "e-commerce/avatar",
+      folder: "e-commerce",
       public_id:
         crypto.randomBytes(8).toString("hex") +
         "_" +
