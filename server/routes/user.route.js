@@ -55,9 +55,14 @@ router
 router.delete(
   "/remove-user",
   verifyTokenMiddleware,
-  authorizeRoleMiddleware("admin"),
+  authorizeRoleMiddleware("admin", "buyer", "seller", "supplier", "deliverer"),
   userController.removeAnUser
 );
 
 /* export user router */
 module.exports = router;
+
+/**
+ * user roles can be defined after completing the project
+ * roles: "admin", "buyer", "seller", "supplier", "deliverer"
+ */
