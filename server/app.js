@@ -10,8 +10,10 @@ const express = require("express");
 const cors = require("cors");
 
 /* internal imports */
+const errorHandlerMiddleware = require("./middlewares/errorHandler.middleware");
 
 /* router level imports */
+const userRoute = require("./routes/user.route");
 
 /* application level connections */
 const app = express();
@@ -21,8 +23,10 @@ app.use(cors());
 app.use(express.json());
 
 /* router level connections */
+app.use("/user", userRoute);
 
 /* global error handlers */
+app.use(errorHandlerMiddleware);
 
 /* enable connection */
 app.get("/", (req, res) => {
