@@ -18,7 +18,6 @@ function useMyself() {
       if (response.acknowledgement) {
         setIsLoading(false);
         setMyselfState(response.data);
-        console.log(response.description);
       } else {
         setIsLoading(false);
         setError(response);
