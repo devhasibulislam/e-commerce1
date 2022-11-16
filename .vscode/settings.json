@@ -10,6 +10,7 @@
     "noreferrer",
     "Signin",
     "tailwindcss",
+    "toastify",
     "ysos"
   ],
   "[jsonc]": {
