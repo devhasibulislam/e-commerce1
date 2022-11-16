@@ -99,12 +99,18 @@ const ProfileSubmenu = () => {
             <span className="whitespace-nowrap">{profileOption.title}</span>
           </Link>
         ))}
-        <p className="flex gap-x-2 shadow px-4 py-2 hover:shadow-lg cur">
+        <p
+          className="flex gap-x-2 shadow px-4 py-2 hover:shadow-lg cur"
+          onClick={() => {
+            localStorage.removeItem("accessToken");
+            window.location.reload();
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
-            className="w-6 h-6 text-red-500"
+            className="w-6 h-6 text-red-500 cursor-pointer"
           >
             <path
               fillRule="evenodd"
