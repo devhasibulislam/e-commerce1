@@ -103,6 +103,8 @@ const userSchema = new mongoose.Schema(
       default: "inactive",
     },
 
+    shippingAddress: String,
+
     // for user account confirmation token
     confirmationToken: String,
     confirmationTokenExpires: Date,
