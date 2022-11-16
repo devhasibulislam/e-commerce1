@@ -1,7 +1,10 @@
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
+import { ExistingUser } from "./Header";
 
 const ProfileSubmenu = () => {
+  const user = useContext(ExistingUser);
+
   // user profile options
   const profileOptions = [
     {
@@ -54,6 +57,31 @@ const ProfileSubmenu = () => {
         </svg>
       ),
     },
+    {
+      anchor: "/track-orders",
+      title: "Track orders",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="w-6 h-6 text-[#e56c36]"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+          />
+        </svg>
+      ),
+    },
   ];
 
   return (
@@ -68,10 +96,10 @@ const ProfileSubmenu = () => {
             className="flex gap-x-2 shadow px-4 py-2 hover:shadow-lg"
           >
             {profileOption.icon}
-            {profileOption.title}
+            <span className="whitespace-nowrap">{profileOption.title}</span>
           </Link>
         ))}
-        <p className="flex gap-x-2 shadow px-4 py-2 hover:shadow-lg">
+        <p className="flex gap-x-2 shadow px-4 py-2 hover:shadow-lg cur">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

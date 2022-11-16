@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Loading from "../components/Loading";
+import useMyself from "../utils/useMyself";
 import Cart from "./Cart";
 import Categories from "./Categories";
 import Logo from "./Logo";
@@ -6,8 +8,15 @@ import Profile from "./Profile";
 import Searchbar from "./Searchbar";
 import Submenu from "./Submenu";
 
+export const ExistingUser = React.createContext({});
+
 const Header = () => {
+  const [myselfState, isLoading, error] = useMyself();
   const [openSubMenu, setOpenSubMenu] = useState(false);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   // vertical line
   const verticalLine = (
@@ -67,7 +76,9 @@ const Header = () => {
               {verticalLine}
 
               {/* user profile */}
-              <Profile />
+              <ExistingUser.Provider value={myselfState}>
+                <Profile />
+              </ExistingUser.Provider>
             </div>
           </div>
         </div>
