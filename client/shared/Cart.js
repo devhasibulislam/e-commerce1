@@ -4,7 +4,7 @@ const Cart = () => {
   return (
     <>
       <span
-        className={`shadow-md hover:shadow-lg p-2 flex gap-x-2 rounded-full px-4`}
+        className={`shadow-md hover:shadow-lg p-2 flex gap-x-2 rounded-full lg:px-2 px-4`}
         title="View your shoppings..."
       >
         <svg
