@@ -1,10 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Title from "../components/Title";
 import AccountBanner from "../components/AccountBanner";
+import AccountButton from "../components/AccountButton";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import SmallLoading from "../components/SmallLoading";
 
 const Forgot = () => {
+  const [loading, setLoading] = useState(false);
+
+  function handleResetPassword(event) {
+    event.preventDefault();
+
+    const userInformation = {
+      email: event.target.email.value,
+      password: event.target.password.value,
+    };
+
+    console.log(userInformation);
+
+    const resetPassword = async () => {
+      setLoading(true);
+      const request = await fetch(`http://localhost:8080/user/reset-password`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(userInformation),
+      });
+      const response = await request.json();
+      if (response.acknowledgement) {
+        toast.success(response.description);
+        setLoading(false);
+        event.target.reset();
+      } else {
+        toast.error(response.description);
+        setLoading(false);
+      }
+    };
+    resetPassword();
+  }
+
   return (
     <section className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
       <Title title={"Reset Password"} />
@@ -28,40 +66,33 @@ const Forgot = () => {
             </h1>
             <div className="w-full flex-1">
               <div className="mx-auto max-w-xs mt-8">
-                <form className="flex flex-col gap-y-4">
-                  {/* email field */}
-                  <input
-                    className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                  />
+                {loading ? (
+                  <SmallLoading />
+                ) : (
+                  <form
+                    className="flex flex-col gap-y-4"
+                    onSubmit={handleResetPassword}
+                  >
+                    {/* email field */}
+                    <input
+                      className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                    />
 
-                  {/* password field */}
-                  <input
-                    className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                    type="password"
-                    name="password"
-                    placeholder="New Password"
-                  />
+                    {/* password field */}
+                    <input
+                      className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                      type="password"
+                      name="password"
+                      placeholder="New Password"
+                    />
 
-                  {/* submit button */}
-                  <button className="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
-                    <svg
-                      className="w-6 h-6 -ml-2"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                      <circle cx="8.5" cy="7" r="4" />
-                      <path d="M20 8v6M23 11h-6" />
-                    </svg>
-                    <span className="ml-3">Forgot Password</span>
-                  </button>
-                </form>
+                    {/* submit button */}
+                    <AccountButton value={"Forgot Password"} />
+                  </form>
+                )}
                 <p className="mt-6 text-xs text-gray-600 text-center">
                   Don't have an account?
                   <Link
@@ -86,6 +117,18 @@ const Forgot = () => {
         </div>
         <AccountBanner />
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </section>
   );
 };
