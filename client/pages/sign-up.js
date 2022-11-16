@@ -1,10 +1,83 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Title from "../components/Title";
 import AccountBanner from "../components/AccountBanner";
+import TinyLoading from "../components/TinyLoading";
+import SmallLoading from "../components/SmallLoading";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AccountButton from "../components/AccountButton";
 
 const Signup = () => {
+  const [avatarLoading, setAvatarLoading] = useState(false);
+  const [userLoading, setUserLoading] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [avatar, setAvatar] = useState(null);
+
+  // upload avatar
+  function handleUserAvatar(event) {
+    const formData = new FormData();
+    formData.append("avatar", event.target.files[0]);
+
+    const uploadAvatar = async () => {
+      setAvatarLoading(true);
+      const request = await fetch(`http://localhost:8080/user/avatar`, {
+        method: "POST",
+        body: formData,
+      });
+      const response = await request.json();
+      if (response.acknowledgement) {
+        toast.success(response.description);
+        setAvatarLoading(false);
+        setAvatar({
+          path: response.data.path,
+          name: response.data.filename,
+        });
+      } else {
+        toast.error(response.description);
+      }
+    };
+    uploadAvatar();
+  }
+
+  // insert new user
+  function handleSignupForm(event) {
+    event.preventDefault();
+    const phone = event.target.phone.value;
+
+    const userInformation = {
+      name: event.target.name.value,
+      email: event.target.email.value,
+      password: event.target.password.value,
+      confirmPassword: event.target.confirmPassword.value,
+      avatar: avatar,
+      phone: phone.length === 11 ? "+88" + phone : "+880" + phone,
+    };
+
+    const signupUser = async () => {
+      setUserLoading(true);
+      const request = await fetch(`http://localhost:8080/user/sign-up`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(userInformation),
+      });
+      const response = await request.json();
+      if (response.acknowledgement) {
+        toast.success(response.description);
+        setUserLoading(false);
+        setShowAlert(true);
+        event.target.reset();
+      } else {
+        setUserLoading(false);
+        toast.error(response.description);
+      }
+    };
+    signupUser();
+  }
+
   return (
     <section className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
       <Title title={"Sign up"} />
@@ -28,102 +101,124 @@ const Signup = () => {
             </h1>
             <div className="w-full flex-1">
               <div className="mx-auto max-w-xs mt-8">
-                <form className="flex flex-col gap-y-4">
-                  {/* name field */}
-                  <input
-                    className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                    type="text"
-                    name="name"
-                    placeholder="Full Name"
-                  />
+                {userLoading ? (
+                  <SmallLoading />
+                ) : (
+                  <form
+                    className="flex flex-col gap-y-4"
+                    onSubmit={handleSignupForm}
+                  >
+                    {/* name field */}
+                    <input
+                      className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                      type="text"
+                      name="name"
+                      placeholder="Full Name"
+                      required
+                    />
 
-                  {/* email field */}
-                  <input
-                    className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                  />
+                    {/* email field */}
+                    <input
+                      className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      required
+                    />
 
-                  {/* password field */}
-                  <input
-                    className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                  />
+                    {/* password field */}
+                    <input
+                      className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      required
+                    />
 
-                  {/* confirm password field */}
-                  <input
-                    className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                    type="password"
-                    name="confirmPassword"
-                    placeholder="Confirm Password"
-                  />
+                    {/* confirm password field */}
+                    <input
+                      className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                      type="password"
+                      name="confirmPassword"
+                      placeholder="Confirm Password"
+                      required
+                    />
 
-                  {/* phone number field */}
-                  <input
-                    className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                    type="number"
-                    name="phone"
-                    placeholder="Phone"
-                  />
+                    {/* phone number field */}
+                    <input
+                      className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                      type="number"
+                      name="phone"
+                      placeholder="Phone"
+                      required
+                    />
 
-                  {/* avatar upload field */}
-                  <div className="flex items-center justify-center w-full">
-                    <label
-                      for="dropzone-file"
-                      className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
-                    >
-                      <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                        <svg
-                          aria-hidden="true"
-                          className="w-10 h-10 mb-3 text-gray-400"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
+                    {/* avatar upload field */}
+                    {avatarLoading ? (
+                      <TinyLoading />
+                    ) : avatar === null ? (
+                      <div className="flex items-center justify-center w-full">
+                        <label
+                          for="dropzone-file"
+                          className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
                         >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                          ></path>
-                        </svg>
-                        <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                          <span className="font-semibold">Click to upload</span>{" "}
-                          or drag and drop
-                        </p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
-                          SVG, PNG, JPG or WEBP (MAX. 800x400px)
+                          <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                            <svg
+                              aria-hidden="true"
+                              className="w-10 h-10 mb-3 text-gray-400"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                              ></path>
+                            </svg>
+                            <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                              <span className="font-semibold">
+                                Click to upload
+                              </span>{" "}
+                              or drag and drop
+                            </p>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">
+                              PNG, JPG, JPEG (MAX {"<="} 1MB)
+                            </p>
+                          </div>
+                          <input
+                            id="dropzone-file"
+                            type="file"
+                            name="avatar"
+                            className="hidden"
+                            onChange={handleUserAvatar}
+                          />
+                        </label>
+                      </div>
+                    ) : (
+                      <div className="flex gap-x-2">
+                        <Image
+                          src={avatar.path}
+                          alt={avatar.name}
+                          height={70}
+                          width={70}
+                          className="rounded shadow"
+                        />
+                        <p className="text-sm font-medium flex flex-col">
+                          {avatar.name.split("/")[2].split("_")[1]}
+                          <span className="bg-green-500 w-fit px-2 rounded-xl text-white">
+                            Avatar Uploaded
+                          </span>
                         </p>
                       </div>
-                      <input
-                        id="dropzone-file"
-                        type="file"
-                        className="hidden"
-                      />
-                    </label>
-                  </div>
+                    )}
 
-                  {/* submit button */}
-                  <button className="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
-                    <svg
-                      className="w-6 h-6 -ml-2"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                      <circle cx="8.5" cy="7" r="4" />
-                      <path d="M20 8v6M23 11h-6" />
-                    </svg>
-                    <span className="ml-3">Sign Up</span>
-                  </button>
-                </form>
+                    {/* submit button */}
+                    <AccountButton value={"Sign Up"} />
+                  </form>
+                )}
                 <p className="mt-6 text-xs text-gray-600 text-center">
                   Already have an account?
                   <Link
@@ -140,6 +235,18 @@ const Signup = () => {
         </div>
         <AccountBanner />
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </section>
   );
 };
