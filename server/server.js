@@ -29,5 +29,5 @@ mongoose
 
 /* establish server port */
 app.listen(process.env.PORT, () => {
-  consoleMessage.successMessage(`App listening on http://localhost:8080/`);
+  consoleMessage.successMessage(`App listening on port ${process.env.PORT}`);
 });
