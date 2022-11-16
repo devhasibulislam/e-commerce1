@@ -27,7 +27,8 @@
 
 # Deployment link
 
-- Live link: https://ecommerce-se.vercel.app
+- CSR link: https://ecommerce-se.vercel.app
+- SSR link: https://ecommerce-se.onrender.com
 - Repo link: https://github.com/hasibulislam999/e-commerce
 
 # Contributors
