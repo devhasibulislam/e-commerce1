@@ -8,7 +8,7 @@ import Header from "../../shared/Header";
 import useMyself from "../../utils/useMyself";
 
 const Profile = () => {
-  const [myselfState, isLoading, error] = useMyself();
+  const [myselfState, isLoading] = useMyself();
 
   if (isLoading) {
     return <Loading />;

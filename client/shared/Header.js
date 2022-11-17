@@ -11,7 +11,7 @@ import Submenu from "./Submenu";
 export const ExistingUser = React.createContext({});
 
 const Header = () => {
-  const [myselfState, isLoading, error] = useMyself();
+  const [myselfState, isLoading] = useMyself();
   const [openSubMenu, setOpenSubMenu] = useState(false);
 
   if (isLoading) {

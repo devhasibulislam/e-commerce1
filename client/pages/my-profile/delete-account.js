@@ -11,7 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import TinyLoading from "../../components/loading/TinyLoading";
 
 const DeleteAccount = () => {
-  const [myselfState, isLoading, error] = useMyself();
+  const [myselfState, isLoading] = useMyself();
   const [deleteState, setDeleteState] = useState(false);
   const [removeStatement, setRemoveStatement] = useState("");
   const [loading, setLoading] = useState(false);

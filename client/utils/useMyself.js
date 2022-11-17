@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 function useMyself() {
   const [myselfState, setMyselfState] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState({});
 
   useEffect(() => {
     const getMyself = async () => {
@@ -20,13 +19,13 @@ function useMyself() {
         setMyselfState(response.data);
       } else {
         setIsLoading(false);
-        setError(response);
+        console.error(response.response);
       }
     };
     getMyself();
   }, []);
 
-  return [myselfState, isLoading, error];
+  return [myselfState, isLoading];
 }
 
 export default useMyself;

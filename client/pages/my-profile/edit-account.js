@@ -12,7 +12,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const EditAccount = () => {
-  const [myselfState, isLoading, error] = useMyself();
+  const [myselfState, isLoading] = useMyself();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
