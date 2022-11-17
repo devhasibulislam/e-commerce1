@@ -19,8 +19,6 @@ const Forgot = () => {
       password: event.target.password.value,
     };
 
-    console.log(userInformation);
-
     const resetPassword = async () => {
       setLoading(true);
       const request = await fetch(`http://localhost:8080/user/reset-password`, {
